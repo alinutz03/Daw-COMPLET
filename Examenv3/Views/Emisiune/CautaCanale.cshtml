@@ -1,0 +1,15 @@
+﻿@model Examenv3.Models.EMISIUNE
+
+<form method="post" asp-action="CautaCanale">
+    <select asp-for="@Model.Producator" asp-items="@ViewBag.Producator"></select> <br />
+    <input type="submit" value="Submit" />
+
+    @if (ViewBag.Emisiune != null)
+    {
+        @foreach (CANAL_TV c in @ViewBag.Emisiune)
+        {
+            <h2>@c.Nume</h2>
+            <p>@c.AdresaSediu</p>
+        }
+    }
+</form>

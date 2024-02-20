@@ -1,0 +1,31 @@
+﻿@model List<Examenv3.Models.EMISIUNE>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Titlu</th>
+            <th>Producator</th>
+            <th>Anul Lansarii</th>
+            <th>Gen</th>
+            <th>Canal TV</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var emisiune in Model)
+        {
+            <tr>
+                <td>@emisiune.Titlu</td>
+                <td>@emisiune.Producator</td>
+                <td>@emisiune.AnulLansarii</td>
+                <td>@emisiune.Gen</td>
+                <td>@emisiune.CanalTV.Nume</td>
+                <td> Emisiune realizata de @emisiune.Producator difuzata pe canalul @emisiune.CanalTV.Nume</td>
+                <td><a asp-action="EditeazaEmisiune" asp-route-id="@emisiune.Id">Editeaza o emisiune</a></td>
+                <td><a asp-action="StergeEmisiune" asp-route-id="@emisiune.Id" onclick="return confirm('Esti sigur ca vrei sa stergi emisiunea ?')">Sterge o emisiune</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
